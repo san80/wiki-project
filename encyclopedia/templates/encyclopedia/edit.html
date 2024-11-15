@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <title>create new page</title>
+        <style>
+            input[type="text"] {
+                width: 100%;  /* Make input fields take the full width */
+                padding: 10px;
+                margin: 10px 0;  /* Space between inputs */
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;  /* Ensure padding doesn't affect total width */
+            }
+    
+            /* Specifically target the content input to make it larger */
+            input[name="content"] {
+                height: 100px;  /* Adjust height for the content box */
+                resize: vertical;  /* Allow vertical resizing */
+            }
+        </style>
+    </head>
+    <body>
+        <form action="{% url 'createnewpage' %}" method="GET">
+            Title:<input type="text" name="title" value="{{ name }}"><h1>
+            Content:<input type="text" name="content" value="{{ content }}"><p>
+                <input type="submit">
+        </form>
+    </body>
+</html>

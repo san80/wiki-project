@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ name }}
+{% endblock %}
+
+{% block body %}
+    {% if content is None %}
+    <h1>Page not found</h1>
+    {% else %}
+    <p>{{ content|safe|escape }}</p>
+    <form action="{% url 'edit' %}" method="GET">
+        <input type="hidden" name="get_name" value={{ name }}>
+        <input type="submit" value="edit">
+    </form>
+ 
+    {% endif %}
+
+{% endblock %}
